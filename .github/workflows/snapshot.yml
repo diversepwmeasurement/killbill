@@ -1,11 +1,10 @@
-name: snapshot
-
-on:
-  workflow_dispatch:
-
 jobs:
   snapshot:
-    uses: killbill/gh-actions-shared/.github/workflows/snapshot.yml@main
     secrets:
-      OSSRH_USER: ${{ secrets.OSSRH_USER }}
       OSSRH_PASS: ${{ secrets.OSSRH_PASS }}
+      OSSRH_USER: ${{ secrets.OSSRH_USER }}
+    uses: killbill/gh-actions-shared/.github/workflows/snapshot.yml@main
+name: snapshot
+on:
+  repository_dispatch:
+    types: trigger-ga___snapshot.yml

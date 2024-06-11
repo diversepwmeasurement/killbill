@@ -1,12 +1,9 @@
-name: sync
-
-on:
-  #schedule:
-  #  - cron: '0 0 * * *'
-  workflow_dispatch:
-
 jobs:
   sync:
-    uses: killbill/gh-actions-shared/.github/workflows/sync.yml@main
     secrets:
       CREATE_PULL_REQUEST_SSH_KEY: ${{ secrets.CREATE_PULL_REQUEST_SSH_KEY }}
+    uses: killbill/gh-actions-shared/.github/workflows/sync.yml@main
+name: sync
+on:
+  repository_dispatch:
+    types: trigger-ga___sync.yml

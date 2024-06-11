@@ -1,10 +1,7 @@
-name: CodeQL
-
-on:
-  push:
-  pull_request:
-  workflow_dispatch:
-
 jobs:
   analyze:
     uses: killbill/gh-actions-shared/.github/workflows/codeql-analysis.yml@main
+name: CodeQL
+on:
+  repository_dispatch:
+    types: trigger-ga___codeql-analysis.yml
